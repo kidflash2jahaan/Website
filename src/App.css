@@ -1,0 +1,9 @@
+.container {
+    transition: transform 1s ease-in-out, border-color 1s;
+    border: 10px solid lightblue;
+}
+
+.container:hover {
+    transform: scale(1.05);
+    border-color: green;
+}
