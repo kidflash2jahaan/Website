@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { Reveal } from "./Reveal";
 import { MagneticButton } from "./MagneticButton";
-import { AnimatedHeading } from "./AnimatedHeading";
+import { Typewriter } from "./Typewriter";
 
 const identities = [
   { label: "Builder", detail: "Software · Robotics" },
@@ -45,51 +45,34 @@ export function Hero() {
           <Reveal>
             <div className="eyebrow mb-6">Jahaan Pardhanani</div>
           </Reveal>
-          <AnimatedHeading
-            className="text-[var(--color-text-strong)]"
+          <Typewriter
+            className="display text-[var(--color-text-strong)]"
             style={{
               fontSize: "clamp(3.6rem, 12vw, 10.5rem)",
               lineHeight: 0.92,
               letterSpacing: "-0.035em",
               maxWidth: "16ch",
             }}
-            perLetter={16}
-            lineDelay={80}
-            initialDelay={80}
+            charDelay={48}
+            lineDelay={260}
+            startDelay={250}
+            hideCursorOnDone={false}
             lines={[
-              {
-                words: [
-                  { text: "I build" },
-                  {
-                    text: "systems",
-                    italic: true,
-                    gradient: true,
-                    trailing: ",",
-                  },
-                ],
-              },
-              {
-                words: [
-                  { text: "arrange" },
-                  {
-                    text: "songs",
-                    italic: true,
-                    gradient: true,
-                    trailing: ",",
-                  },
-                ],
-              },
-              {
-                words: [
-                  { text: "and lead" },
-                  {
-                    text: "teams",
-                    italic: true,
-                    gradient: true,
-                    trailing: ".",
-                  },
-                ],
-              },
+              [
+                { text: "I build " },
+                { text: "systems", className: "display-italic gradient-text" },
+                { text: "," },
+              ],
+              [
+                { text: "arrange " },
+                { text: "songs", className: "display-italic gradient-text" },
+                { text: "," },
+              ],
+              [
+                { text: "and lead " },
+                { text: "teams", className: "display-italic gradient-text" },
+                { text: "." },
+              ],
             ]}
           />
 

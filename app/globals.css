@@ -717,6 +717,34 @@ body {
   box-shadow: 0 0 12px rgba(94, 92, 230, 0.5);
 }
 
+/* === Typewriter cursor === */
+.tw-cursor {
+  display: inline-block;
+  width: 0.08em;
+  height: 0.85em;
+  margin-left: 0.05em;
+  vertical-align: -0.08em;
+  background: linear-gradient(
+    to bottom,
+    var(--color-accent),
+    var(--color-accent-warm)
+  );
+  border-radius: 1px;
+  animation: tw-blink 1s steps(2, start) infinite;
+  box-shadow: 0 0 12px rgba(94, 92, 230, 0.5);
+}
+@keyframes tw-blink {
+  to {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tw-cursor {
+    animation: none;
+    opacity: 1;
+  }
+}
+
 /* Letter stagger reveal (used by AnimatedHeading) */
 .letter {
   display: inline-block;
