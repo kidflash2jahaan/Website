@@ -1,5 +1,6 @@
 import { Section } from "./Section";
 import { ScrollPop } from "./ScrollPop";
+import { ScrollTypewriter } from "./ScrollTypewriter";
 import { GlassCard } from "./GlassCard";
 
 const items = [
@@ -68,12 +69,12 @@ export function Leadership() {
                   </span>
                 ) : null}
               </div>
-              <h3
+              <ScrollTypewriter
                 className="display mt-4 text-[var(--color-text-strong)]"
-                style={{ fontSize: "clamp(1.4rem, 2.6vw, 1.8rem)" }}
-              >
-                {it.title}
-              </h3>
+                style={{ fontSize: "clamp(1.4rem, 2.6vw, 1.8rem)", lineHeight: 1.15 }}
+                lines={[[{ text: it.title }]]}
+                charDelay={24}
+              />
               <p className="mt-4 text-[var(--color-text-soft)]">{it.body}</p>
             </GlassCard>
           </ScrollPop>

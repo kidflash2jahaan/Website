@@ -1,6 +1,7 @@
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { ScrollPop } from "./ScrollPop";
+import { ScrollTypewriter } from "./ScrollTypewriter";
 import { GlassCard } from "./GlassCard";
 
 export function Academics() {
@@ -27,16 +28,20 @@ export function Academics() {
         <ScrollPop className="col-span-12 lg:col-span-6">
           <GlassCard className="p-8 md:p-10">
             <span className="eyebrow eyebrow-accent">President&apos;s Award</span>
-            <h3
+            <ScrollTypewriter
               className="display mt-5 text-[var(--color-text-strong)]"
-              style={{ fontSize: "clamp(1.6rem, 3.2vw, 2.2rem)" }}
-            >
-              Presidential Award for
-              <span className="display-italic">
-                {" "}
-                Outstanding Academic Excellence
-              </span>
-            </h3>
+              style={{ fontSize: "clamp(1.6rem, 3.2vw, 2.2rem)", lineHeight: 1.1 }}
+              lines={[
+                [
+                  { text: "Presidential Award for" },
+                  {
+                    text: " Outstanding Academic Excellence",
+                    className: "display-italic",
+                  },
+                ],
+              ]}
+              charDelay={22}
+            />
             <p className="mt-5 text-[var(--color-text-soft)]">
               Awarded in 5th, 6th, and 7th grade. White House congratulatory
               letter received in 8th grade (2025).

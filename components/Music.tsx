@@ -1,6 +1,7 @@
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { ScrollPop } from "./ScrollPop";
+import { ScrollTypewriter } from "./ScrollTypewriter";
 import { GlassCard } from "./GlassCard";
 import { Marquee } from "./Marquee";
 import { Waveform } from "./Waveform";
@@ -63,13 +64,20 @@ export function Music() {
                 <span className="eyebrow eyebrow-accent">Featured</span>
                 <span className="eyebrow">Piano · Classical</span>
               </div>
-              <h3
+              <ScrollTypewriter
                 className="display mt-6 text-[var(--color-text-strong)]"
-                style={{ fontSize: "clamp(1.7rem, 3.6vw, 2.6rem)" }}
-              >
-                MTAC Certificate of Merit —
-                <span className="display-italic"> Level 9, State Honors</span>
-              </h3>
+                style={{ fontSize: "clamp(1.7rem, 3.6vw, 2.6rem)", lineHeight: 1.1 }}
+                lines={[
+                  [
+                    { text: "MTAC Certificate of Merit —" },
+                    {
+                      text: " Level 9, State Honors",
+                      className: "display-italic",
+                    },
+                  ],
+                ]}
+                charDelay={22}
+              />
               <p
                 className="mt-6 leading-snug text-[var(--color-text-soft)]"
                 style={{ fontSize: "1.1rem" }}
@@ -121,13 +129,17 @@ export function Music() {
                 <span className="eyebrow eyebrow-accent">
                   Vocal Ensemble · Sage Hill
                 </span>
-                <h3
+                <ScrollTypewriter
                   className="display mt-5 text-[var(--color-text-strong)]"
-                  style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)" }}
-                >
-                  Sage Hill Vocal Ensemble &
-                  <span className="display-italic"> The Six Cs</span>
-                </h3>
+                  style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", lineHeight: 1.1 }}
+                  lines={[
+                    [
+                      { text: "Sage Hill Vocal Ensemble &" },
+                      { text: " The Six Cs", className: "display-italic" },
+                    ],
+                  ]}
+                  charDelay={24}
+                />
                 <p className="mt-5 text-[var(--color-text-soft)]">
                   Member of the school&apos;s top select vocal group. Performed
                   in <span className="display-italic">Choir by Candlelight</span>{" "}
@@ -201,16 +213,20 @@ export function Music() {
             <span className="eyebrow eyebrow-accent">
               Congressional Recognition
             </span>
-            <h3
+            <ScrollTypewriter
               className="display mt-5 text-[var(--color-text-strong)]"
-              style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)" }}
-            >
-              U.S. House of Representatives —
-              <span className="display-italic">
-                {" "}
-                Certificate of Congressional Recognition
-              </span>
-            </h3>
+              style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", lineHeight: 1.1 }}
+              lines={[
+                [
+                  { text: "U.S. House of Representatives —" },
+                  {
+                    text: " Certificate of Congressional Recognition",
+                    className: "display-italic",
+                  },
+                ],
+              ]}
+              charDelay={20}
+            />
             <p className="mt-5 text-[var(--color-text-soft)]">
               From Rep. Young Kim, for music advocacy at Make Music Day Orange,
               June 2024.

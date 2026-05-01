@@ -1,5 +1,6 @@
 import { Section } from "./Section";
 import { ScrollPop } from "./ScrollPop";
+import { ScrollTypewriter } from "./ScrollTypewriter";
 import { GlassCard } from "./GlassCard";
 
 const sports = [
@@ -40,12 +41,12 @@ export function Athletics() {
           <ScrollPop key={s.name} className="col-span-12 md:col-span-4">
             <GlassCard className="flex h-full flex-col p-7 md:p-8">
               <span className="eyebrow eyebrow-accent">{s.duration}</span>
-              <h3
+              <ScrollTypewriter
                 className="display mt-3 text-[var(--color-text-strong)]"
-                style={{ fontSize: "clamp(1.5rem, 2.6vw, 1.9rem)" }}
-              >
-                {s.name}
-              </h3>
+                style={{ fontSize: "clamp(1.5rem, 2.6vw, 1.9rem)", lineHeight: 1.15 }}
+                lines={[[{ text: s.name }]]}
+                charDelay={50}
+              />
               <p className="mt-3 text-[var(--color-text-soft)]">{s.detail}</p>
             </GlassCard>
           </ScrollPop>

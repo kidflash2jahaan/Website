@@ -1,6 +1,7 @@
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { ScrollPop } from "./ScrollPop";
+import { ScrollTypewriter } from "./ScrollTypewriter";
 import { GlassCard } from "./GlassCard";
 import { Marquee } from "./Marquee";
 
@@ -114,12 +115,12 @@ export function Engineering() {
                 Sage Hill School FRC · 2026 Season
               </span>
             </div>
-            <h3
+            <ScrollTypewriter
               className="display mt-6 text-[var(--color-text-strong)]"
-              style={{ fontSize: "clamp(1.7rem, 3.6vw, 2.6rem)" }}
-            >
-              Software Lead — full robot stack, team of six
-            </h3>
+              style={{ fontSize: "clamp(1.7rem, 3.6vw, 2.6rem)", lineHeight: 1.1 }}
+              lines={[[{ text: "Software Lead — full robot stack, team of six" }]]}
+              charDelay={22}
+            />
             <p
               className="mt-6 max-w-2xl leading-snug text-[var(--color-text-soft)]"
               style={{ fontSize: "1.1rem" }}
@@ -165,13 +166,17 @@ export function Engineering() {
                 <span className="eyebrow eyebrow-accent">Award</span>
                 <span className="eyebrow">71st Annual OCSEF · Mar 2026</span>
               </div>
-              <h3
+              <ScrollTypewriter
                 className="display mt-6 text-[var(--color-text-strong)]"
-                style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)" }}
-              >
-                Mind in Motion —
-                <span className="display-italic"> assistive mobility</span>
-              </h3>
+                style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", lineHeight: 1.1 }}
+                lines={[
+                  [
+                    { text: "Mind in Motion —" },
+                    { text: " assistive mobility", className: "display-italic" },
+                  ],
+                ]}
+                charDelay={26}
+              />
               <p className="mt-5 text-[var(--color-text-soft)]">
                 Designed and built a motorized wheelchair system with remote
                 control and a dead-man safety switch. Advocated for the
