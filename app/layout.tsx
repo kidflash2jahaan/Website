@@ -31,12 +31,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Jahaan Pardhanani — Builder, Composer, Leader",
   description:
-    "Portfolio of Jahaan Pardhanani — high school freshman, FRC Software Lead, classically trained pianist, producer, and band leader. Sage Hill School, Class of 2029.",
+    "Portfolio of Jahaan Pardhanani — high school freshman, FRC Software Lead, classically trained pianist, producer, and solo live performer. Sage Hill School, Class of 2029.",
   authors: [{ name: "Jahaan Pardhanani" }],
   openGraph: {
     title: "Jahaan Pardhanani — Builder, Composer, Leader",
     description:
-      "FRC Software Lead, MTAC Level 9 pianist, AI/ML student, band leader. Sage Hill School, Class of 2029.",
+      "FRC Software Lead, MTAC Level 9 pianist, AI/ML student, 30+ solo live performances. Sage Hill School, Class of 2029.",
     type: "profile",
   },
   robots: { index: true, follow: true },

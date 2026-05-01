@@ -56,8 +56,8 @@ export function Vision() {
               >
                 The way I&apos;ve always worked — take ownership of whole
                 systems, lead teams under pressure, and speak up when something
-                needs to change. The robot stack and the band, the science fair
-                project and the recital — same instinct, same throughline.
+                needs to change. The robot stack and the recital, the science
+                fair project and the live set — same instinct, same throughline.
               </p>
             </Reveal>
           </div>

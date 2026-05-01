@@ -8,7 +8,7 @@ import { Typewriter } from "./Typewriter";
 const identities = [
   { label: "Builder", detail: "Software · Robotics" },
   { label: "Composer", detail: "Piano · Production" },
-  { label: "Leader", detail: "FRC · Bands · Teams" },
+  { label: "Leader", detail: "FRC · Teams · Community" },
 ];
 
 const currently = [

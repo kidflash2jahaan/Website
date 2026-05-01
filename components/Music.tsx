@@ -49,9 +49,9 @@ export function Music() {
       }
       lede={
         <>
-          Piano since age five. Forms and leads bands. Arranges songs, teaches
-          parts, directs sets — across more than thirty live performances. A
-          parallel discipline as deeply developed as the engineering.
+          Piano since age five. Performs solo across more than thirty live
+          shows on guitar, piano, and voice. A parallel discipline as deeply
+          developed as the engineering.
         </>
       }
     >
@@ -191,22 +191,22 @@ export function Music() {
             <Waveform />
           </div>
           <span className="eyebrow eyebrow-accent">
-            Lead Guitarist & Vocalist
+            Solo Guitar · Piano · Voice
           </span>
           <h3
             className="display mt-4 text-[var(--color-text-strong)]"
             style={{ fontSize: "clamp(1.7rem, 3.6vw, 2.6rem)" }}
           >
-            <span className="numeral gradient-text">30+</span> live shows
+            <span className="numeral gradient-text">30+</span> solo performances
           </h3>
           <p
             className="mt-5 max-w-xl leading-snug text-[var(--color-text-soft)]"
             style={{ fontSize: "1.15rem" }}
           >
-            Forms and leads bands. Arranges every song, teaches bandmates their
-            parts, and directs live sets. Rearranged{" "}
-            <span className="display-italic">Sun Raha Hai Na Tu</span> as a
-            cross-cultural duet — wrote all the parts, coached every performer.
+            Self-accompanied sets across festivals, school events, senior
+            living communities, and community celebrations — guitar, piano,
+            and voice. Builds setlists, runs my own signal chain, and handles
+            every part of the show end-to-end.
           </p>
           <div className="mt-10">
             <a

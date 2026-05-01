@@ -5,9 +5,10 @@ import { GlassCard } from "./GlassCard";
 
 const items = [
   {
-    label: "Music Leadership",
-    title: "Band leader & arranger",
-    body: "Forms and leads bands. Arranges every song, teaches bandmates their parts, and directs live sets across thirty-plus performances. Cross-cultural arrangement of Sun Raha Hai Na Tu — wrote all parts and coached every performer.",
+    label: "Engineering Leadership",
+    title: "Software Lead — Sage Hill FRC",
+    body: "Lead a team of six across two 2026 District competitions. Architected the full robot software stack and diagnosed a mid-match sensor integration failure between matches at the LA District event.",
+    year: "2026",
   },
   {
     label: "Youth Education",
@@ -27,8 +28,8 @@ const items = [
   },
   {
     label: "Community Music",
-    title: "Volunteer performer",
-    body: "Sunrise Senior Living, Independence Day cultural events, Diwali celebrations, and community festivals.",
+    title: "Volunteer solo performer",
+    body: "Sunrise Senior Living, Independence Day cultural events, Diwali celebrations, and community festivals — guitar, piano, and voice sets.",
   },
 ];
 
@@ -49,8 +50,8 @@ export function Leadership() {
       lede={
         <>
           A pattern across roles: form the team, set the direction, take the
-          uncomfortable conversations. From the Young Timers to the FRC pit, the
-          throughline is the same — quiet ownership of whole systems.
+          uncomfortable conversations. From the FRC pit to the recital stage,
+          the throughline is the same — quiet ownership of whole systems.
         </>
       }
     >
