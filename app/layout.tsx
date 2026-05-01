@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { AuroraParallax } from "@/components/AuroraParallax";
+import { CursorTracker } from "@/components/CursorTracker";
 import { CursorSpotlight } from "@/components/CursorSpotlight";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import "./globals.css";
@@ -55,8 +56,11 @@ export default function RootLayout({
     >
       <body className="min-h-full antialiased">
         <AuroraParallax />
-        <ScrollProgress />
+        <div className="grid-base" aria-hidden />
+        <div className="grid-glow" aria-hidden />
+        <CursorTracker />
         <CursorSpotlight />
+        <ScrollProgress />
         {children}
       </body>
     </html>

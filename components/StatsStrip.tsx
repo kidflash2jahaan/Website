@@ -26,12 +26,6 @@ export function StatsStrip() {
       aria-label="Selected stats"
       className="relative px-6 py-16 md:px-12 md:py-20 lg:px-20"
     >
-      {/* Decorative orb */}
-      <div
-        className="orb orb-mint orb-float-2"
-        aria-hidden
-        style={{ top: "-30px", right: "8%", width: "120px", height: "120px" }}
-      />
       <div className="mx-auto max-w-7xl">
         <div className="hairline-accent mb-12" />
         <div className="glass p-8 md:p-12">

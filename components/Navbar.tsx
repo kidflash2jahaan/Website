@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
+import { LiveClock } from "./LiveClock";
 
 const navItems = [
   { href: "#engineering", label: "Engineering" },
@@ -12,7 +13,6 @@ const navItems = [
 
 export function Navbar() {
   const { scrollY } = useScroll();
-  // Glass intensity ramps with scroll: barely-there at top, fully-frosted past 200px
   const bgOpacity = useTransform(scrollY, [0, 200], [0.25, 0.65]);
   const blurAmount = useTransform(scrollY, [0, 200], [12, 32]);
   const padding = useTransform(scrollY, [0, 200], [10, 6]);
@@ -42,7 +42,6 @@ export function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.2, 0.65, 0.2, 1] }}
     >
-      {/* Wordmark — fades in on scroll */}
       <motion.span
         className="hidden pl-3 pr-1 text-[0.78rem] font-medium text-[var(--color-text)] md:block"
         style={{ opacity: wordmarkOpacity }}
@@ -61,6 +60,8 @@ export function Navbar() {
           </a>
         ))}
       </div>
+
+      <LiveClock />
 
       <a
         href="#contact"

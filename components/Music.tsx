@@ -52,14 +52,7 @@ export function Music() {
         </>
       }
     >
-      {/* Decorative orb */}
       <div className="relative">
-        <div
-          className="orb orb-coral orb-float-1"
-          aria-hidden
-          style={{ top: "10%", right: "-2%", width: "140px", height: "140px" }}
-        />
-
         <div className="grid grid-cols-12 gap-x-8 gap-y-10">
           {/* Featured: Piano */}
           <Reveal className="col-span-12 lg:col-span-7">

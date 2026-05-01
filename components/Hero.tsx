@@ -1,9 +1,10 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 import { Reveal } from "./Reveal";
-import { AnimatedHeading } from "./AnimatedHeading";
 import { MagneticButton } from "./MagneticButton";
+import { WordRotator } from "./WordRotator";
 
 const identities = [
   { label: "Builder", detail: "Software · Robotics" },
@@ -18,30 +19,21 @@ const currently = [
 ];
 
 export function Hero() {
-  return (
-    <header className="relative overflow-hidden px-6 pt-20 pb-20 md:px-12 md:pt-24 md:pb-28 lg:px-20">
-      {/* Decorative floating glass orbs — colorful gradient marbles */}
-      <div
-        className="orb orb-violet orb-float-1"
-        aria-hidden
-        style={{ top: "12%", right: "8%", width: "180px", height: "180px" }}
-      />
-      <div
-        className="orb orb-coral orb-float-2"
-        aria-hidden
-        style={{ top: "55%", left: "4%", width: "110px", height: "110px" }}
-      />
-      <div
-        className="orb orb-mint orb-float-3"
-        aria-hidden
-        style={{ bottom: "12%", right: "20%", width: "76px", height: "76px" }}
-      />
-      <div
-        className="orb orb-amber orb-float-4"
-        aria-hidden
-        style={{ top: "30%", left: "32%", width: "44px", height: "44px" }}
-      />
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  // Hero text gently scales / fades as you scroll past
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.92]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.6, 0]);
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, -80]);
 
+  return (
+    <header
+      ref={ref}
+      className="relative overflow-hidden px-6 pt-20 pb-20 md:px-12 md:pt-24 md:pb-28 lg:px-20"
+    >
       <div className="relative mx-auto flex max-w-7xl flex-col">
         {/* Top status row */}
         <div className="flex flex-wrap items-center justify-between gap-4">
@@ -62,43 +54,59 @@ export function Hero() {
           </Reveal>
         </div>
 
-        {/* Hero centerpiece */}
-        <div className="mt-14 md:mt-20">
+        {/* Hero centerpiece — scales on scroll */}
+        <motion.div
+          className="mt-14 md:mt-20"
+          style={{ scale: heroScale, opacity: heroOpacity, y: heroY }}
+        >
           <Reveal>
             <div className="eyebrow mb-6">Jahaan Pardhanani</div>
           </Reveal>
-          <AnimatedHeading
-            className="text-[var(--color-text-strong)]"
+          <h1
+            className="display text-[var(--color-text-strong)]"
             style={{
               fontSize: "clamp(3.6rem, 12vw, 10.5rem)",
               lineHeight: 0.92,
               letterSpacing: "-0.035em",
               maxWidth: "16ch",
             }}
-            perLetter={20}
-            lineDelay={120}
-            initialDelay={120}
-            lines={[
-              {
-                words: [
-                  { text: "I build" },
-                  { text: "systems", italic: true, gradient: true, trailing: "," },
-                ],
-              },
-              {
-                words: [
-                  { text: "arrange" },
-                  { text: "songs", italic: true, gradient: true, trailing: "," },
-                ],
-              },
-              {
-                words: [
-                  { text: "and lead" },
-                  { text: "teams", italic: true, gradient: true, trailing: "." },
-                ],
-              },
-            ]}
-          />
+          >
+            <Reveal as="span" className="block">
+              I build{" "}
+              <span className="display-italic gradient-text">
+                <WordRotator
+                  words={[
+                    "systems",
+                    "products",
+                    "things",
+                    "machines",
+                    "software",
+                  ]}
+                />
+              </span>
+              ,
+            </Reveal>
+            <Reveal as="span" delay={120} className="block">
+              arrange{" "}
+              <span className="display-italic gradient-text">
+                <WordRotator
+                  words={["songs", "harmonies", "voices", "ensembles"]}
+                  intervalMs={2700}
+                />
+              </span>
+              ,
+            </Reveal>
+            <Reveal as="span" delay={240} className="block">
+              and lead{" "}
+              <span className="display-italic gradient-text">
+                <WordRotator
+                  words={["teams", "bands", "rooms", "people"]}
+                  intervalMs={2900}
+                />
+              </span>
+              .
+            </Reveal>
+          </h1>
 
           <div className="mt-12 grid grid-cols-12 gap-x-8 gap-y-10">
             <Reveal delay={420} className="col-span-12 md:col-span-6">
@@ -138,7 +146,7 @@ export function Hero() {
               </div>
             </Reveal>
           </div>
-        </div>
+        </motion.div>
 
         {/* Identity glass tiles */}
         <Reveal delay={620}>

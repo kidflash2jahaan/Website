@@ -609,14 +609,78 @@ body {
   }
 }
 
-/* === Animated dot grid (subtle background pattern option) === */
-.dot-grid {
-  background-image: radial-gradient(
-    circle,
-    rgba(10, 10, 18, 0.06) 1px,
-    transparent 1px
+/* === Interactive graph-paper grid === */
+/* Base layer: faint always-visible grid lines + dots */
+.grid-base {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    /* Vertical lines */
+    linear-gradient(
+      to right,
+      rgba(10, 10, 18, 0.04) 1px,
+      transparent 1px
+    ),
+    /* Horizontal lines */
+      linear-gradient(
+        to bottom,
+        rgba(10, 10, 18, 0.04) 1px,
+        transparent 1px
+      ),
+    /* Intersection dots */
+      radial-gradient(
+        circle,
+        rgba(10, 10, 18, 0.06) 1.2px,
+        transparent 1.4px
+      );
+  background-size: 36px 36px, 36px 36px, 36px 36px;
+}
+
+/* Highlight layer: brighter accent grid that appears as a soft glow
+   around the cursor — revealed by a radial mask centered on the cursor. */
+.grid-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(94, 92, 230, 0.22) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(94, 92, 230, 0.22) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle,
+      rgba(94, 92, 230, 0.5) 1.6px,
+      transparent 1.8px
+    );
+  background-size: 36px 36px, 36px 36px, 36px 36px;
+  -webkit-mask: radial-gradient(
+    340px circle at var(--cursor-x, 50%) var(--cursor-y, 50%),
+    black 0%,
+    rgba(0, 0, 0, 0.4) 25%,
+    transparent 65%
   );
-  background-size: 32px 32px;
+  mask: radial-gradient(
+    340px circle at var(--cursor-x, 50%) var(--cursor-y, 50%),
+    black 0%,
+    rgba(0, 0, 0, 0.4) 25%,
+    transparent 65%
+  );
+  transition: opacity 250ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid-glow {
+    display: none;
+  }
 }
 
 /* === Cursor spotlight overlay === */
