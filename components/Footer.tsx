@@ -4,10 +4,10 @@ export function Footer() {
   return (
     <footer
       id="contact"
-      className="relative scroll-mt-24 px-6 pt-24 pb-12 md:px-12 md:pt-36 lg:px-20"
+      className="relative scroll-mt-24 px-6 pt-12 pb-12 md:px-12 md:pt-20 lg:px-20"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="hairline mb-16" />
+        <div className="hairline mb-10" />
         <div className="grid grid-cols-12 gap-x-8 gap-y-12">
           <div className="col-span-12 lg:col-span-7">
             <Reveal>

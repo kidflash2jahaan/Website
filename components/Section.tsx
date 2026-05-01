@@ -21,11 +21,11 @@ export function Section({
   return (
     <section
       id={id}
-      className="relative scroll-mt-24 px-6 py-24 md:px-12 md:py-36 lg:px-20"
+      className="relative scroll-mt-24 px-6 py-12 md:px-12 md:py-20 lg:px-20"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="hairline mb-16" />
-        <header className="grid grid-cols-12 gap-x-8 gap-y-10 mb-16 md:mb-24">
+        <div className="hairline mb-10" />
+        <header className="grid grid-cols-12 gap-x-8 gap-y-10 mb-10 md:mb-14">
           <div className="col-span-12 md:col-span-3">
             <Reveal>
               <div className="flex items-baseline gap-4">

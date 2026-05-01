@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
+import { useEffect, useState } from "react";
 import { LiveClock } from "./LiveClock";
 
 const navItems = [
@@ -16,7 +17,17 @@ export function Navbar() {
   const bgOpacity = useTransform(scrollY, [0, 200], [0.25, 0.65]);
   const blurAmount = useTransform(scrollY, [0, 200], [12, 32]);
   const padding = useTransform(scrollY, [0, 200], [10, 6]);
-  const wordmarkOpacity = useTransform(scrollY, [0, 60, 120], [0, 0, 1]);
+
+  // Top-button visibility — appears once scrolled past hero-ish
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const unsub = scrollY.on("change", (v) => setScrolled(v > 200));
+    return unsub;
+  }, [scrollY]);
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   return (
     <motion.nav
@@ -42,12 +53,23 @@ export function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.2, 0.65, 0.2, 1] }}
     >
-      <motion.span
-        className="hidden pl-3 pr-1 text-[0.78rem] font-medium text-[var(--color-text)] md:block"
-        style={{ opacity: wordmarkOpacity }}
+      {/* Top button — wordmark + arrow; scrolls to top */}
+      <button
+        type="button"
+        onClick={scrollToTop}
+        aria-label="Back to top"
+        className="group inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-[0.78rem] font-medium text-[var(--color-text)] transition-colors hover:bg-white/40"
       >
-        Jahaan
-      </motion.span>
+        <motion.span
+          aria-hidden
+          animate={{ y: scrolled ? 0 : 2, opacity: scrolled ? 1 : 0.55 }}
+          transition={{ type: "spring", stiffness: 240, damping: 22 }}
+          className="inline-block"
+        >
+          ↑
+        </motion.span>
+        <span className="hidden md:inline">Jahaan</span>
+      </button>
 
       <div className="flex items-center gap-0.5">
         {navItems.map((item) => (

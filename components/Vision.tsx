@@ -4,10 +4,10 @@ export function Vision() {
   return (
     <section
       id="vision"
-      className="relative scroll-mt-24 px-6 py-32 md:px-12 md:py-48 lg:px-20"
+      className="relative scroll-mt-24 px-6 py-16 md:px-12 md:py-24 lg:px-20"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="hairline-accent mb-16" />
+        <div className="hairline-accent mb-10" />
         <div className="grid grid-cols-12 gap-x-8 gap-y-10">
           <div className="col-span-12 md:col-span-3">
             <Reveal>
