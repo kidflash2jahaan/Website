@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { Reveal } from "./Reveal";
 import { MagneticButton } from "./MagneticButton";
-import { WordRotator } from "./WordRotator";
+import { AnimatedHeading } from "./AnimatedHeading";
 
 const identities = [
   { label: "Builder", detail: "Software · Robotics" },
@@ -45,51 +45,53 @@ export function Hero() {
           <Reveal>
             <div className="eyebrow mb-6">Jahaan Pardhanani</div>
           </Reveal>
-          <h1
-            className="display text-[var(--color-text-strong)]"
+          <AnimatedHeading
+            className="text-[var(--color-text-strong)]"
             style={{
               fontSize: "clamp(3.6rem, 12vw, 10.5rem)",
               lineHeight: 0.92,
               letterSpacing: "-0.035em",
               maxWidth: "16ch",
             }}
-          >
-            <Reveal as="span" className="block">
-              I build{" "}
-              <WordRotator
-                className="display-italic"
-                textClassName="display-italic gradient-text"
-                words={[
-                  "systems",
-                  "products",
-                  "things",
-                  "machines",
-                  "software",
-                ]}
-              />
-              ,
-            </Reveal>
-            <Reveal as="span" delay={120} className="block">
-              arrange{" "}
-              <WordRotator
-                className="display-italic"
-                textClassName="display-italic gradient-text"
-                words={["songs", "harmonies", "voices", "ensembles"]}
-                intervalMs={2700}
-              />
-              ,
-            </Reveal>
-            <Reveal as="span" delay={240} className="block">
-              and lead{" "}
-              <WordRotator
-                className="display-italic"
-                textClassName="display-italic gradient-text"
-                words={["teams", "bands", "rooms", "people"]}
-                intervalMs={2900}
-              />
-              .
-            </Reveal>
-          </h1>
+            perLetter={16}
+            lineDelay={80}
+            initialDelay={80}
+            lines={[
+              {
+                words: [
+                  { text: "I build" },
+                  {
+                    text: "systems",
+                    italic: true,
+                    gradient: true,
+                    trailing: ",",
+                  },
+                ],
+              },
+              {
+                words: [
+                  { text: "arrange" },
+                  {
+                    text: "songs",
+                    italic: true,
+                    gradient: true,
+                    trailing: ",",
+                  },
+                ],
+              },
+              {
+                words: [
+                  { text: "and lead" },
+                  {
+                    text: "teams",
+                    italic: true,
+                    gradient: true,
+                    trailing: ".",
+                  },
+                ],
+              },
+            ]}
+          />
 
           <div className="mt-12 grid grid-cols-12 gap-x-8 gap-y-10">
             <Reveal delay={420} className="col-span-12 md:col-span-6">

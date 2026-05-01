@@ -35,7 +35,7 @@ export function StatsStrip() {
                 <div className="flex flex-col">
                   <AnimatedNumber
                     value={s.value}
-                    className="numeral text-[var(--color-text-strong)]"
+                    className="numeral stat-pop text-[var(--color-text-strong)]"
                     style={{ fontSize: "4.5rem", lineHeight: 1 }}
                   />
                   <span

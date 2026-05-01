@@ -6,20 +6,19 @@ import {
   type CSSProperties,
   type MouseEvent as ReactMouseEvent,
   useRef,
+  useState,
 } from "react";
 
 type GlassCardProps = {
   children: ReactNode;
   className?: string;
-  /** Subtle 3D tilt toward cursor */
   tilt?: boolean;
-  /** Lift on hover */
   lift?: boolean;
-  /** Cursor-tracked specular highlight */
   shimmer?: boolean;
-  /** Rotating conic gradient border on hover */
   ring?: boolean;
 };
+
+type Ripple = { id: number; x: number; y: number; size: number };
 
 export function GlassCard({
   children,
@@ -30,8 +29,8 @@ export function GlassCard({
   ring = true,
 }: GlassCardProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const [ripples, setRipples] = useState<Ripple[]>([]);
 
-  // Cursor position tracked via CSS custom properties on the element directly
   const tiltX = useMotionValue(0);
   const tiltY = useMotionValue(0);
   const springX = useSpring(tiltX, { stiffness: 200, damping: 22 });
@@ -62,18 +61,31 @@ export function GlassCard({
     tiltY.set(0);
   }
 
+  function handleClick(e: ReactMouseEvent<HTMLDivElement>) {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const size = Math.max(rect.width, rect.height) * 1.6;
+    const id = Date.now() + Math.random();
+    setRipples((rs) => [...rs, { id, x, y, size }]);
+    setTimeout(() => {
+      setRipples((rs) => rs.filter((r) => r.id !== id));
+    }, 850);
+  }
+
   const base: CSSProperties = {
     transformStyle: "preserve-3d",
     perspective: "1200px",
   };
 
-  // We use plain CSS classes for the static look (so SSR shows the card),
-  // and Motion only enriches transform for the 3D tilt + lift.
   return (
     <motion.div
       ref={ref}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
+      onClick={handleClick}
       whileHover={lift ? { y: -3 } : undefined}
       transition={{ type: "spring", stiffness: 250, damping: 24 }}
       className={`glass ${shimmer ? "shimmer" : ""} ${
@@ -85,6 +97,19 @@ export function GlassCard({
         rotateY: tilt ? springY : 0,
       }}
     >
+      {ripples.map((r) => (
+        <span
+          key={r.id}
+          aria-hidden
+          className="ripple"
+          style={{
+            left: r.x,
+            top: r.y,
+            width: r.size,
+            height: r.size,
+          }}
+        />
+      ))}
       <div data-card-content className="relative">
         {children}
       </div>

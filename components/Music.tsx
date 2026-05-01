@@ -2,6 +2,7 @@ import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { GlassCard } from "./GlassCard";
 import { Marquee } from "./Marquee";
+import { Waveform } from "./Waveform";
 
 const mtacProgression = [
   { level: "Level 4", year: "2020", note: "Theory 79/80" },
@@ -156,6 +157,9 @@ export function Music() {
       {/* Live Performance */}
       <div className="mt-20 grid grid-cols-12 gap-x-8 gap-y-12">
         <Reveal className="col-span-12 lg:col-span-7">
+          <div className="mb-6">
+            <Waveform />
+          </div>
           <span className="eyebrow eyebrow-accent">
             Lead Guitarist & Vocalist
           </span>

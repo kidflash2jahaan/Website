@@ -3,7 +3,9 @@ import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { AuroraParallax } from "@/components/AuroraParallax";
 import { CursorTracker } from "@/components/CursorTracker";
 import { CursorSpotlight } from "@/components/CursorSpotlight";
+import { CursorTrail } from "@/components/CursorTrail";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { FloatingDecor } from "@/components/FloatingDecor";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -58,8 +60,10 @@ export default function RootLayout({
         <AuroraParallax />
         <div className="grid-base" aria-hidden />
         <div className="grid-glow" aria-hidden />
+        <FloatingDecor />
         <CursorTracker />
         <CursorSpotlight />
+        <CursorTrail />
         <ScrollProgress />
         {children}
       </body>
