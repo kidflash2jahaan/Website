@@ -1,5 +1,6 @@
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
+import { ScrollPop } from "./ScrollPop";
 import { GlassCard } from "./GlassCard";
 import { Marquee } from "./Marquee";
 
@@ -105,7 +106,7 @@ export function Engineering() {
     >
       <div className="grid grid-cols-12 gap-x-8 gap-y-10">
         {/* Featured FRC */}
-        <Reveal className="col-span-12 lg:col-span-8">
+        <ScrollPop className="col-span-12 lg:col-span-8">
           <GlassCard className="h-full p-8 md:p-12">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <span className="eyebrow eyebrow-accent">Featured</span>
@@ -154,10 +155,10 @@ export function Engineering() {
               </div>
             </div>
           </GlassCard>
-        </Reveal>
+        </ScrollPop>
 
         {/* OCSEF */}
-        <Reveal className="col-span-12 lg:col-span-4" delay={120}>
+        <ScrollPop className="col-span-12 lg:col-span-4">
           <GlassCard className="flex h-full flex-col justify-between p-8 md:p-10">
             <div>
               <div className="flex flex-wrap items-center gap-x-3">
@@ -187,7 +188,7 @@ export function Engineering() {
               </p>
             </div>
           </GlassCard>
-        </Reveal>
+        </ScrollPop>
       </div>
 
       <div className="mt-20 grid grid-cols-12 gap-x-8 gap-y-12">

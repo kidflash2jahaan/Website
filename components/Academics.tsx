@@ -1,5 +1,6 @@
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
+import { ScrollPop } from "./ScrollPop";
 import { GlassCard } from "./GlassCard";
 
 export function Academics() {
@@ -23,7 +24,7 @@ export function Academics() {
       }
     >
       <div className="grid grid-cols-12 gap-x-8 gap-y-10">
-        <Reveal className="col-span-12 lg:col-span-6">
+        <ScrollPop className="col-span-12 lg:col-span-6">
           <GlassCard className="p-8 md:p-10">
             <span className="eyebrow eyebrow-accent">President&apos;s Award</span>
             <h3
@@ -54,9 +55,9 @@ export function Academics() {
               ))}
             </ul>
           </GlassCard>
-        </Reveal>
+        </ScrollPop>
 
-        <Reveal className="col-span-12 lg:col-span-6" delay={120}>
+        <ScrollPop className="col-span-12 lg:col-span-6">
           <div className="grid grid-cols-1 gap-y-6">
             <GlassCard className="p-7">
               <span className="eyebrow eyebrow-accent">School Awards</span>
@@ -89,7 +90,7 @@ export function Academics() {
               </h4>
             </GlassCard>
           </div>
-        </Reveal>
+        </ScrollPop>
       </div>
     </Section>
   );

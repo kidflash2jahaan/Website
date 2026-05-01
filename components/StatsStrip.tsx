@@ -1,4 +1,5 @@
 import { Reveal } from "./Reveal";
+import { ScrollPop } from "./ScrollPop";
 import { AnimatedNumber } from "./AnimatedNumber";
 
 const stats = [
@@ -28,7 +29,8 @@ export function StatsStrip() {
     >
       <div className="mx-auto max-w-7xl">
         <div className="hairline-accent mb-8" />
-        <div className="glass p-8 md:p-12">
+        <ScrollPop withRotate={false} offset={50}>
+          <div className="glass p-8 md:p-12">
           <ul className="grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-4">
             {stats.map((s, i) => (
               <Reveal key={s.label} as="li" delay={i * 80}>
@@ -49,7 +51,8 @@ export function StatsStrip() {
               </Reveal>
             ))}
           </ul>
-        </div>
+          </div>
+        </ScrollPop>
       </div>
     </section>
   );

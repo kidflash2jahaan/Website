@@ -1,5 +1,5 @@
 import { Section } from "./Section";
-import { Reveal } from "./Reveal";
+import { ScrollPop } from "./ScrollPop";
 import { GlassCard } from "./GlassCard";
 
 const sports = [
@@ -36,13 +36,8 @@ export function Athletics() {
       }
     >
       <ol className="grid grid-cols-12 gap-x-8 gap-y-8">
-        {sports.map((s, i) => (
-          <Reveal
-            as="li"
-            key={s.name}
-            delay={i * 80}
-            className="col-span-12 md:col-span-4"
-          >
+        {sports.map((s) => (
+          <ScrollPop key={s.name} className="col-span-12 md:col-span-4">
             <GlassCard className="flex h-full flex-col p-7 md:p-8">
               <span className="eyebrow eyebrow-accent">{s.duration}</span>
               <h3
@@ -53,7 +48,7 @@ export function Athletics() {
               </h3>
               <p className="mt-3 text-[var(--color-text-soft)]">{s.detail}</p>
             </GlassCard>
-          </Reveal>
+          </ScrollPop>
         ))}
       </ol>
     </Section>

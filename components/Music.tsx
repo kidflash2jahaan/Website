@@ -1,5 +1,6 @@
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
+import { ScrollPop } from "./ScrollPop";
 import { GlassCard } from "./GlassCard";
 import { Marquee } from "./Marquee";
 import { Waveform } from "./Waveform";
@@ -56,7 +57,7 @@ export function Music() {
       <div className="relative">
         <div className="grid grid-cols-12 gap-x-8 gap-y-10">
           {/* Featured: Piano */}
-          <Reveal className="col-span-12 lg:col-span-7">
+          <ScrollPop className="col-span-12 lg:col-span-7">
             <GlassCard className="h-full p-8 md:p-12">
               <div className="flex flex-wrap items-center gap-x-4">
                 <span className="eyebrow eyebrow-accent">Featured</span>
@@ -111,10 +112,10 @@ export function Music() {
                 </ol>
               </div>
             </GlassCard>
-          </Reveal>
+          </ScrollPop>
 
           {/* Vocal Ensemble */}
-          <Reveal className="col-span-12 lg:col-span-5" delay={120}>
+          <ScrollPop className="col-span-12 lg:col-span-5">
             <GlassCard className="flex h-full flex-col justify-between p-8 md:p-10">
               <div>
                 <span className="eyebrow eyebrow-accent">
@@ -150,7 +151,7 @@ export function Music() {
                 </div>
               </div>
             </GlassCard>
-          </Reveal>
+          </ScrollPop>
         </div>
       </div>
 
@@ -167,15 +168,14 @@ export function Music() {
             className="display mt-4 text-[var(--color-text-strong)]"
             style={{ fontSize: "clamp(1.7rem, 3.6vw, 2.6rem)" }}
           >
-            <span className="numeral gradient-text">30+</span> live shows —
-            <span className="display-italic"> The Young Timers</span>
+            <span className="numeral gradient-text">30+</span> live shows
           </h3>
           <p
             className="mt-5 max-w-xl leading-snug text-[var(--color-text-soft)]"
             style={{ fontSize: "1.15rem" }}
           >
-            Formed and leads the band. Arranges every song, teaches bandmates
-            their parts, and directs live sets. Rearranged{" "}
+            Forms and leads bands. Arranges every song, teaches bandmates their
+            parts, and directs live sets. Rearranged{" "}
             <span className="display-italic">Sun Raha Hai Na Tu</span> as a
             cross-cultural duet — wrote all the parts, coached every performer.
           </p>
@@ -196,7 +196,7 @@ export function Music() {
         </Reveal>
 
         {/* Congressional Recognition */}
-        <Reveal className="col-span-12 lg:col-span-5" delay={120}>
+        <ScrollPop className="col-span-12 lg:col-span-5">
           <GlassCard className="p-8 md:p-10" tilt={true}>
             <span className="eyebrow eyebrow-accent">
               Congressional Recognition
@@ -222,7 +222,7 @@ export function Music() {
               </p>
             </div>
           </GlassCard>
-        </Reveal>
+        </ScrollPop>
       </div>
 
       {/* Venues marquee */}

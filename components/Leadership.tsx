@@ -1,12 +1,12 @@
 import { Section } from "./Section";
-import { Reveal } from "./Reveal";
+import { ScrollPop } from "./ScrollPop";
 import { GlassCard } from "./GlassCard";
 
 const items = [
   {
     label: "Music Leadership",
-    title: "Founder & Director — The Young Timers",
-    body: "Formed and leads the band. Arranges every song, teaches bandmates their parts, and directs live sets across thirty-plus performances. Cross-cultural arrangement of Sun Raha Hai Na Tu — wrote all parts and coached every performer.",
+    title: "Band leader & arranger",
+    body: "Forms and leads bands. Arranges every song, teaches bandmates their parts, and directs live sets across thirty-plus performances. Cross-cultural arrangement of Sun Raha Hai Na Tu — wrote all parts and coached every performer.",
   },
   {
     label: "Youth Education",
@@ -54,13 +54,8 @@ export function Leadership() {
       }
     >
       <ol className="grid grid-cols-12 gap-x-8 gap-y-10">
-        {items.map((it, i) => (
-          <Reveal
-            as="li"
-            key={it.title}
-            delay={(i % 2) * 80}
-            className="col-span-12 md:col-span-6"
-          >
+        {items.map((it) => (
+          <ScrollPop key={it.title} className="col-span-12 md:col-span-6">
             <GlassCard className="flex h-full flex-col p-8 md:p-10">
               <div className="flex items-baseline justify-between gap-4">
                 <span className="eyebrow eyebrow-accent">{it.label}</span>
@@ -81,7 +76,7 @@ export function Leadership() {
               </h3>
               <p className="mt-4 text-[var(--color-text-soft)]">{it.body}</p>
             </GlassCard>
-          </Reveal>
+          </ScrollPop>
         ))}
       </ol>
     </Section>
