@@ -66,7 +66,7 @@ body {
   color: var(--color-text);
   position: relative;
   overflow-x: hidden;
-  background: var(--color-base);
+  background: transparent;
 }
 
 /* === Aurora background — pastel, light, drifting === */
@@ -524,10 +524,11 @@ body {
 .gradient-text {
   background: linear-gradient(
     135deg,
-    var(--color-accent) 0%,
-    #b491ff 30%,
-    var(--color-magenta) 60%,
-    var(--color-accent-warm) 100%
+    #5e5ce6 0%,
+    #7c3aed 25%,
+    #d946a3 55%,
+    #f43f5e 80%,
+    #ff7a59 100%
   );
   background-size: 200% 200%;
   -webkit-background-clip: text;
