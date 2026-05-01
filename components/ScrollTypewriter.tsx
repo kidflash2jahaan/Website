@@ -15,12 +15,15 @@ type ScrollTypewriterProps = {
   hideCursorOnDone?: boolean;
   /** How much of the element must be visible before typing begins (0–1) */
   amount?: number;
+  /** When true, typing replays every time the element re-enters view */
+  replay?: boolean;
 };
 
 /**
- * Typewriter that only starts typing once it enters the viewport.
- * Reserves layout space with an invisible placeholder so cards don't
- * shift size when typing kicks in.
+ * Typewriter that fires when its container enters the viewport. With
+ * replay: true (default), it re-types every time you scroll back into
+ * view. Reserves layout space with an invisible placeholder so cards
+ * don't reflow when typing kicks in.
  */
 export function ScrollTypewriter({
   lines,
@@ -32,17 +35,30 @@ export function ScrollTypewriter({
   cursor = true,
   hideCursorOnDone = true,
   amount = 0.45,
+  replay = true,
 }: ScrollTypewriterProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { amount, once: true });
-  const [armed, setArmed] = useState(false);
+  const inView = useInView(ref, { amount, once: !replay });
+  const [armCount, setArmCount] = useState(0);
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
-    if (inView) setArmed(true);
-  }, [inView]);
+    if (inView) {
+      // Each entry into view: bump armCount to force Typewriter to
+      // remount and re-type from scratch.
+      setArmCount((c) => c + 1);
+      setActive(true);
+    } else if (replay) {
+      setActive(false);
+    }
+  }, [inView, replay]);
 
   return (
-    <div ref={ref} className={className} style={{ ...style, position: "relative" }}>
+    <div
+      ref={ref}
+      className={className}
+      style={{ ...style, position: "relative" }}
+    >
       {/* Invisible placeholder reserves layout space */}
       <span aria-hidden style={{ visibility: "hidden" }}>
         {lines.map((line, li) => (
@@ -55,7 +71,7 @@ export function ScrollTypewriter({
           </span>
         ))}
       </span>
-      {/* Actual typewriter overlays it */}
+      {/* Typewriter overlay — remounts each time armCount changes */}
       <span
         style={{
           position: "absolute",
@@ -63,8 +79,9 @@ export function ScrollTypewriter({
           display: "block",
         }}
       >
-        {armed ? (
+        {active ? (
           <Typewriter
+            key={armCount}
             lines={lines}
             charDelay={charDelay}
             lineDelay={lineDelay}

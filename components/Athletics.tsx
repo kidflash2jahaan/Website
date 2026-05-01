@@ -47,7 +47,11 @@ export function Athletics() {
                 lines={[[{ text: s.name }]]}
                 charDelay={50}
               />
-              <p className="mt-3 text-[var(--color-text-soft)]">{s.detail}</p>
+              <ScrollTypewriter
+                className="mt-3 text-[var(--color-text-soft)]"
+                charDelay={11}
+                lines={[[{ text: s.detail }]]}
+              />
             </GlassCard>
           </ScrollPop>
         ))}

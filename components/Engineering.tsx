@@ -121,16 +121,19 @@ export function Engineering() {
               lines={[[{ text: "Software Lead — full robot stack, team of six" }]]}
               charDelay={22}
             />
-            <p
+            <ScrollTypewriter
               className="mt-6 max-w-2xl leading-snug text-[var(--color-text-soft)]"
               style={{ fontSize: "1.1rem" }}
-            >
-              Architected and authored the complete competition software stack:
-              autonomous routines, motor control, sensor fusion, and endgame
-              logic. At the LA District event, diagnosed and fixed a mid-match
-              sensor integration failure between matches — kept the robot
-              competing.
-            </p>
+              charDelay={10}
+              lines={[
+                [
+                  {
+                    text:
+                      "Architected and authored the complete competition software stack: autonomous routines, motor control, sensor fusion, and endgame logic. At the LA District event, diagnosed and fixed a mid-match sensor integration failure between matches — kept the robot competing.",
+                  },
+                ],
+              ]}
+            />
             <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 border-t border-[var(--color-text-fainter)] pt-6">
               <div className="flex items-baseline gap-3">
                 <span
@@ -177,12 +180,18 @@ export function Engineering() {
                 ]}
                 charDelay={26}
               />
-              <p className="mt-5 text-[var(--color-text-soft)]">
-                Designed and built a motorized wheelchair system with remote
-                control and a dead-man safety switch. Advocated for the
-                kill-switch architecture during the Scientific Review Committee
-                process.
-              </p>
+              <ScrollTypewriter
+                className="mt-5 text-[var(--color-text-soft)]"
+                charDelay={10}
+                lines={[
+                  [
+                    {
+                      text:
+                        "Designed and built a motorized wheelchair system with remote control and a dead-man safety switch. Advocated for the kill-switch architecture during the Scientific Review Committee process.",
+                    },
+                  ],
+                ]}
+              />
             </div>
             <div className="mt-8 border-t border-[var(--color-text-fainter)] pt-5">
               <span className="eyebrow eyebrow-accent">

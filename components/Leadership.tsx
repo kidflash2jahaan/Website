@@ -75,7 +75,11 @@ export function Leadership() {
                 lines={[[{ text: it.title }]]}
                 charDelay={24}
               />
-              <p className="mt-4 text-[var(--color-text-soft)]">{it.body}</p>
+              <ScrollTypewriter
+                className="mt-4 text-[var(--color-text-soft)]"
+                charDelay={9}
+                lines={[[{ text: it.body }]]}
+              />
             </GlassCard>
           </ScrollPop>
         ))}

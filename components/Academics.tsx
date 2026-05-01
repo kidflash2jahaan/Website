@@ -42,10 +42,18 @@ export function Academics() {
               ]}
               charDelay={22}
             />
-            <p className="mt-5 text-[var(--color-text-soft)]">
-              Awarded in 5th, 6th, and 7th grade. White House congratulatory
-              letter received in 8th grade (2025).
-            </p>
+            <ScrollTypewriter
+              className="mt-5 text-[var(--color-text-soft)]"
+              charDelay={11}
+              lines={[
+                [
+                  {
+                    text:
+                      "Awarded in 5th, 6th, and 7th grade. White House congratulatory letter received in 8th grade (2025).",
+                  },
+                ],
+              ]}
+            />
             <ul className="mt-7 grid grid-cols-3 border-t border-[var(--color-text-fainter)] pt-5">
               {["5", "6", "7"].map((g) => (
                 <li key={g}>
@@ -66,33 +74,51 @@ export function Academics() {
           <div className="grid grid-cols-1 gap-y-6">
             <GlassCard className="p-7">
               <span className="eyebrow eyebrow-accent">School Awards</span>
-              <h4
+              <ScrollTypewriter
                 className="mt-3 text-[var(--color-text)]"
                 style={{ fontSize: "1.05rem", fontWeight: 500 }}
-              >
-                Principal&apos;s Award · Student of the Quarter (twice) ·
-                Teacher&apos;s Choice Award · Academic Excellence medals ·
-                Computer Achievement Certificates
-              </h4>
+                charDelay={9}
+                lines={[
+                  [
+                    {
+                      text:
+                        "Principal’s Award · Student of the Quarter (twice) · Teacher’s Choice Award · Academic Excellence medals · Computer Achievement Certificates",
+                    },
+                  ],
+                ]}
+              />
             </GlassCard>
             <GlassCard className="p-7">
               <span className="eyebrow eyebrow-accent">Spelling Bee</span>
-              <h4
+              <ScrollTypewriter
                 className="mt-3 text-[var(--color-text)]"
                 style={{ fontSize: "1.05rem", fontWeight: 500 }}
-              >
-                Three-time school champion · Orange County Spelling Bee
-                representative (2022 – 2024) · Scripps champion, 6th grade
-              </h4>
+                charDelay={11}
+                lines={[
+                  [
+                    {
+                      text:
+                        "Three-time school champion · Orange County Spelling Bee representative (2022 – 2024) · Scripps champion, 6th grade",
+                    },
+                  ],
+                ]}
+              />
             </GlassCard>
             <GlassCard className="p-7">
               <span className="eyebrow eyebrow-accent">Current</span>
-              <h4
+              <ScrollTypewriter
                 className="mt-3 text-[var(--color-text)]"
                 style={{ fontSize: "1.05rem", fontWeight: 500 }}
-              >
-                Sage Hill School · Newport Coast, CA · Freshman, Class of 2029
-              </h4>
+                charDelay={14}
+                lines={[
+                  [
+                    {
+                      text:
+                        "Sage Hill School · Newport Coast, CA · Freshman, Class of 2029",
+                    },
+                  ],
+                ]}
+              />
             </GlassCard>
           </div>
         </ScrollPop>

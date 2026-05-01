@@ -78,19 +78,27 @@ export function Music() {
                 ]}
                 charDelay={22}
               />
-              <p
+              <ScrollTypewriter
                 className="mt-6 leading-snug text-[var(--color-text-soft)]"
                 style={{ fontSize: "1.1rem" }}
-              >
-                97% theory score in 2025. Outstanding Achievement in Piano from
-                Julie Carmona Rodriguez five times — 2019, 2022, 2023, 2024,
-                2025. Performed Chopin&apos;s{" "}
-                <span className="display-italic">
-                  Nocturne in G minor, Op. 15 No. 3
-                </span>{" "}
-                at the Julie Carmona Studios Winter Recital, January 2026.
-                Currently preparing for Advanced Level.
-              </p>
+                charDelay={9}
+                lines={[
+                  [
+                    {
+                      text:
+                        "97% theory score in 2025. Outstanding Achievement in Piano from Julie Carmona Rodriguez five times — 2019, 2022, 2023, 2024, 2025. Performed Chopin’s ",
+                    },
+                    {
+                      text: "Nocturne in G minor, Op. 15 No. 3",
+                      className: "display-italic",
+                    },
+                    {
+                      text:
+                        " at the Julie Carmona Studios Winter Recital, January 2026. Currently preparing for Advanced Level.",
+                    },
+                  ],
+                ]}
+              />
               <div className="mt-10">
                 <span className="eyebrow">Five-year progression</span>
                 <ol className="mt-5 grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-5">
@@ -140,13 +148,22 @@ export function Music() {
                   ]}
                   charDelay={24}
                 />
-                <p className="mt-5 text-[var(--color-text-soft)]">
-                  Member of the school&apos;s top select vocal group. Performed
-                  in <span className="display-italic">Choir by Candlelight</span>{" "}
-                  (December 2025) and{" "}
-                  <span className="display-italic">Becoming</span> (March 2026,
-                  Kazu Fukuda Black Box Theater).
-                </p>
+                <ScrollTypewriter
+                  className="mt-5 text-[var(--color-text-soft)]"
+                  charDelay={10}
+                  lines={[
+                    [
+                      {
+                        text:
+                          "Member of the school’s top select vocal group. Performed in ",
+                      },
+                      { text: "Choir by Candlelight", className: "display-italic" },
+                      { text: " (December 2025) and " },
+                      { text: "Becoming", className: "display-italic" },
+                      { text: " (March 2026, Kazu Fukuda Black Box Theater)." },
+                    ],
+                  ]}
+                />
               </div>
               <div className="mt-8 grid grid-cols-2 border-t border-[var(--color-text-fainter)] pt-5">
                 <div>
@@ -227,10 +244,18 @@ export function Music() {
               ]}
               charDelay={20}
             />
-            <p className="mt-5 text-[var(--color-text-soft)]">
-              From Rep. Young Kim, for music advocacy at Make Music Day Orange,
-              June 2024.
-            </p>
+            <ScrollTypewriter
+              className="mt-5 text-[var(--color-text-soft)]"
+              charDelay={11}
+              lines={[
+                [
+                  {
+                    text:
+                      "From Rep. Young Kim, for music advocacy at Make Music Day Orange, June 2024.",
+                  },
+                ],
+              ]}
+            />
             <div className="mt-7 border-t border-[var(--color-text-fainter)] pt-5">
               <span className="eyebrow eyebrow-accent">Make Music Day</span>
               <p className="mt-1 text-sm text-[var(--color-text-mute)]">
